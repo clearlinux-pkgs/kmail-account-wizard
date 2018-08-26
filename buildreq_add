@@ -1,0 +1,10 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+akonadi-dev
+boost-dev
+kidentitymanagement-dev
+kldap-dev
+knotifyconfig-dev
+kpimtextedit-dev
+ktexteditor-dev
+kmailtransport-dev
