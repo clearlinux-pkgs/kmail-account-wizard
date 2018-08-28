@@ -6,7 +6,7 @@
 #
 Name     : kmail-account-wizard
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz.sig
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535324071
+export SOURCE_DATE_EPOCH=1535430967
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -107,7 +107,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535324071
+export SOURCE_DATE_EPOCH=1535430967
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kmail-account-wizard
 cp COPYING %{buildroot}/usr/share/doc/kmail-account-wizard/COPYING
@@ -134,6 +134,9 @@ popd
 /usr/share/akonadi/accountwizard/tine20/tine20wizard.ui
 /usr/share/applications/org.kde.accountwizard.desktop
 /usr/share/mime/packages/accountwizard-mime.xml
+/usr/share/xdg/accountwizard.categories
+/usr/share/xdg/accountwizard.knsrc
+/usr/share/xdg/accountwizard.renamecategories
 
 %files lib
 %defattr(-,root,root,-)
