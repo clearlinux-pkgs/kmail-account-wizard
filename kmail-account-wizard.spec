@@ -6,24 +6,25 @@
 #
 Name     : kmail-account-wizard
 Version  : 18.08.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/kmail-account-wizard-18.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
-Requires: kmail-account-wizard-bin
-Requires: kmail-account-wizard-lib
-Requires: kmail-account-wizard-data
-Requires: kmail-account-wizard-license
-Requires: kmail-account-wizard-locales
+Requires: kmail-account-wizard-bin = %{version}-%{release}
+Requires: kmail-account-wizard-data = %{version}-%{release}
+Requires: kmail-account-wizard-lib = %{version}-%{release}
+Requires: kmail-account-wizard-license = %{version}-%{release}
+Requires: kmail-account-wizard-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules shared-mime-info
 BuildRequires : gpgme-dev
 BuildRequires : gpgme-extras
 BuildRequires : kcontacts-dev
@@ -41,7 +42,7 @@ BuildRequires : libgpg-error-dev
 BuildRequires : libkdepim-dev
 BuildRequires : libkleo-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : shared-mime-info
 
 %description
@@ -50,8 +51,8 @@ No detailed description available
 %package bin
 Summary: bin components for the kmail-account-wizard package.
 Group: Binaries
-Requires: kmail-account-wizard-data
-Requires: kmail-account-wizard-license
+Requires: kmail-account-wizard-data = %{version}-%{release}
+Requires: kmail-account-wizard-license = %{version}-%{release}
 
 %description bin
 bin components for the kmail-account-wizard package.
@@ -68,8 +69,8 @@ data components for the kmail-account-wizard package.
 %package lib
 Summary: lib components for the kmail-account-wizard package.
 Group: Libraries
-Requires: kmail-account-wizard-data
-Requires: kmail-account-wizard-license
+Requires: kmail-account-wizard-data = %{version}-%{release}
+Requires: kmail-account-wizard-license = %{version}-%{release}
 
 %description lib
 lib components for the kmail-account-wizard package.
@@ -99,20 +100,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535430967
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1543348020
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535430967
+export SOURCE_DATE_EPOCH=1543348020
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kmail-account-wizard
-cp COPYING %{buildroot}/usr/share/doc/kmail-account-wizard/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kmail-account-wizard/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/kmail-account-wizard/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kmail-account-wizard
+cp COPYING %{buildroot}/usr/share/package-licenses/kmail-account-wizard/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kmail-account-wizard/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kmail-account-wizard/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -133,7 +134,7 @@ popd
 /usr/share/akonadi/accountwizard/tine20/tine20wizard.es
 /usr/share/akonadi/accountwizard/tine20/tine20wizard.ui
 /usr/share/applications/org.kde.accountwizard.desktop
-/usr/share/mime/packages/accountwizard-mime.xml
+/usr/share/mime-packages/accountwizard-mime.xml
 /usr/share/xdg/accountwizard.categories
 /usr/share/xdg/accountwizard.knsrc
 /usr/share/xdg/accountwizard.renamecategories
@@ -143,10 +144,10 @@ popd
 /usr/lib64/qt5/plugins/accountwizard_plugin.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kmail-account-wizard/COPYING
-/usr/share/doc/kmail-account-wizard/COPYING.DOC
-/usr/share/doc/kmail-account-wizard/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kmail-account-wizard/COPYING
+/usr/share/package-licenses/kmail-account-wizard/COPYING.DOC
+/usr/share/package-licenses/kmail-account-wizard/COPYING.LIB
 
 %files locales -f accountwizard.lang -f accountwizard_tine20.lang
 %defattr(-,root,root,-)
