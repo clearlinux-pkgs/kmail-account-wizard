@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmail-account-wizard
-Version  : 19.04.0
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.0/src/kmail-account-wizard-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/kmail-account-wizard-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/kmail-account-wizard-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kmail-account-wizard-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kmail-account-wizard-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kmail-account-wizard-19.04.1.tar.xz.sig
 Summary  : KMail account wizard
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -43,6 +43,7 @@ BuildRequires : libkdepim-dev
 BuildRequires : libkleo-dev
 BuildRequires : pimcommon-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qttools-staticdev
 BuildRequires : shared-mime-info
 
 %description
@@ -93,22 +94,29 @@ locales components for the kmail-account-wizard package.
 
 
 %prep
-%setup -q -n kmail-account-wizard-19.04.0
+%setup -q -n kmail-account-wizard-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555699927
+export SOURCE_DATE_EPOCH=1557520860
 mkdir -p clr-build
 pushd clr-build
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555699927
+export SOURCE_DATE_EPOCH=1557520860
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmail-account-wizard
 cp COPYING %{buildroot}/usr/share/package-licenses/kmail-account-wizard/COPYING
