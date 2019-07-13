@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmail-account-wizard
-Version  : 19.04.2
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.2/src/kmail-account-wizard-19.04.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.2/src/kmail-account-wizard-19.04.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.2/src/kmail-account-wizard-19.04.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 19.04.3
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.04.3/src/kmail-account-wizard-19.04.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.3/src/kmail-account-wizard-19.04.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.3/src/kmail-account-wizard-19.04.3.tar.xz.sig
+Summary  : KMail account wizard
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
 Requires: kmail-account-wizard-bin = %{version}-%{release}
@@ -94,14 +94,14 @@ locales components for the kmail-account-wizard package.
 
 
 %prep
-%setup -q -n kmail-account-wizard-19.04.2
+%setup -q -n kmail-account-wizard-19.04.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561561958
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563040992
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -117,7 +117,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1561561958
+export SOURCE_DATE_EPOCH=1563040992
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmail-account-wizard
 cp COPYING %{buildroot}/usr/share/package-licenses/kmail-account-wizard/COPYING
