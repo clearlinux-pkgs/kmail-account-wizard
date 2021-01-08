@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmail-account-wizard
-Version  : 20.12.0
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/20.12.0/src/kmail-account-wizard-20.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kmail-account-wizard-20.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kmail-account-wizard-20.12.0.tar.xz.sig
+Version  : 20.12.1
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/20.12.1/src/kmail-account-wizard-20.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.1/src/kmail-account-wizard-20.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.1/src/kmail-account-wizard-20.12.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 LGPL-2.0
@@ -105,15 +105,15 @@ locales components for the kmail-account-wizard package.
 
 
 %prep
-%setup -q -n kmail-account-wizard-20.12.0
-cd %{_builddir}/kmail-account-wizard-20.12.0
+%setup -q -n kmail-account-wizard-20.12.1
+cd %{_builddir}/kmail-account-wizard-20.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607914697
+export SOURCE_DATE_EPOCH=1610068084
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,11 +129,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607914697
+export SOURCE_DATE_EPOCH=1610068084
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmail-account-wizard
-cp %{_builddir}/kmail-account-wizard-20.12.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kmail-account-wizard/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/kmail-account-wizard-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmail-account-wizard/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kmail-account-wizard-20.12.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kmail-account-wizard/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/kmail-account-wizard-20.12.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmail-account-wizard/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
