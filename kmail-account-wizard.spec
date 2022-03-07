@@ -6,7 +6,7 @@
 #
 Name     : kmail-account-wizard
 Version  : 21.12.3
-Release  : 40
+Release  : 41
 URL      : https://download.kde.org/stable/release-service/21.12.3/src/kmail-account-wizard-21.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kmail-account-wizard-21.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kmail-account-wizard-21.12.3.tar.xz.sig
