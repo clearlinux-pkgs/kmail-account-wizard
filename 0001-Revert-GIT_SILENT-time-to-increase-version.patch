@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Sun, 11 Dec 2022 19:35:57 +0000
+Subject: [PATCH] Revert "GIT_SILENT: time to increase version"
+
+This reverts commit 6cb654827d972842fa083a21d788a0071c8c0d0a.
+
+Clear Linux has a stale shared-mime-info at the moment...
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3d51307..4f19814 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,7 +104,7 @@ set_package_properties(Qt5Keychain PROPERTIES
+                                    TYPE OPTIONAL)
+ 
+ 
+-set( SharedMimeInfo_MINIMUM_VERSION "2.0" )
++set( SharedMimeInfo_MINIMUM_VERSION "1.3" )
+ find_package(SharedMimeInfo ${SharedMimeInfo_MINIMUM_VERSION} REQUIRED)
+ 
+ ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.101.0)
