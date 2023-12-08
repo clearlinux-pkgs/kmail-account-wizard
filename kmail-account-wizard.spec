@@ -9,7 +9,7 @@
 #
 Name     : kmail-account-wizard
 Version  : 23.08.3
-Release  : 77
+Release  : 78
 URL      : https://download.kde.org/stable/release-service/23.08.3/src/kmail-account-wizard-23.08.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.08.3/src/kmail-account-wizard-23.08.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.08.3/src/kmail-account-wizard-23.08.3.tar.xz.sig
